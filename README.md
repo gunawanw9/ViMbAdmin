@@ -1,15 +1,25 @@
 # Postfix Address Rewriting
 ## Postfix Canonical Address Mapping
 
+<<<<<<< HEAD
 In Postfix version 2.2 and later, address rewriting is done for local and remote addresses. The mapping is useful to replace login names by "Firstname.Lastname" style addresses, or to clean up invalid domains in mail addresses produced by legacy mail systems.
 
 In another case, when you have to send email from specific sender@domain in your Virtual Map or relaying the sender@domain **But** it is already exist in **Aliases** table, so you **can not** create mailbox with the same address. The solution is rewriting sender address and you just have to use the right nickname of the sender@domain address for your existing mailbox account.
+=======
+When you have to send email from specific sender@domain in your Virtual Map or relaying the sender@domain **But** it is already exist in **Aliases** table, so you **can not** create mailbox with the same address. The solution is rewriting sender address and you just have to use the right nickname of the sender@domain address for your existing mailbox account.
+>>>>>>> c87cd109e1ec34d5317e254e44f327653ea759b2
 
 For example:
 * Your mailbox account: test@domain.com
 * Your aliases account: support@domain.com
+<<<<<<< HEAD
 
 Put entry in canonical: support@domain.com for test@domain.com, then setup your identity or nickname on your MUA as "Support" for sender address support@domain.com on your mailbox account test@domain.com
+=======
+* Put entry in canonical: support@domain.com for test@domain.com
+
+Then setup your identity or nickname on your MUA as "Support" for sender address support@domain.com on your mailbox account test@domain.com
+>>>>>>> c87cd109e1ec34d5317e254e44f327653ea759b2
 
 **This situation might be happened when you setup aliases account for group mail distribution and you need to send email to them with sender address as aliases account.**
 

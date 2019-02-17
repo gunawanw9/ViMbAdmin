@@ -37,7 +37,11 @@ function insertSender( address )
 {
     str = '<div id="sender-div-' + senderId + '" style="margin-top: 5px; margin-bottom: 5px;">' + "\n"
             + '<input type="text" name="sender[]" value="' + address + '" size="40" title="Sender" readonly="readonly" style="border-radius: 4px 0 0 4px;"/>' + "\n"
+<<<<<<< HEAD
             + '<span title="Remove sender address" class="btn add-on" onclick="removeSender(' + senderId + ');" style="margin-left: -5px; height: 20px; border-radius: 0 4px 4px 0;" >' + "\n"
+=======
+            + '<span title="Remove got to" class="btn add-on" onclick="removeSender(' + senderId + ');" style="margin-left: -5px; height: 20px; border-radius: 0 4px 4px 0;" >' + "\n"
+>>>>>>> c87cd109e1ec34d5317e254e44f327653ea759b2
             + '<i class="icon-minus"></i>' + "\n"
             + '</span>' + "\n"
             + '</div>';
@@ -45,8 +49,12 @@ function insertSender( address )
     senderList[senderId] = address;
     senderId++;
 
+<<<<<<< HEAD
     //jQuery( str ).appendTo( '#div-controls-sender' ).hide().show( 'fast' );
     jQuery( str ).replaceTo( '#div-controls-sender' ).hide().show( 'fast' );
+=======
+    jQuery( str ).appendTo( '#div-controls-sender' ).hide().show( 'fast' );
+>>>>>>> c87cd109e1ec34d5317e254e44f327653ea759b2
 }
 
 
