@@ -35,18 +35,24 @@ $(document).ready( function()
 
 function insertSender( address )
 {
+	/*
     str = '<div id="sender-div-' + senderId + '" style="margin-top: 5px; margin-bottom: 5px;">' + "\n"
             + '<input type="text" name="sender[]" value="' + address + '" size="40" title="Sender" readonly="readonly" style="border-radius: 4px 0 0 4px;"/>' + "\n"
             + '<span title="Remove sender address" class="btn add-on" onclick="removeSender(' + senderId + ');" style="margin-left: -5px; height: 20px; border-radius: 0 4px 4px 0;" >' + "\n"
             + '<i class="icon-minus"></i>' + "\n"
             + '</span>' + "\n"
             + '</div>';
+*/
+
+    str = '<div id="sender-div-' + senderId + '" style="margin-top: 5px; margin-bottom: 5px;">' + "\n"
+            + '<input type="text" name="sender[]" value="' + address + '" size="40" title="Sender" />' + "\n"
+            + '</div>';
 
     senderList[senderId] = address;
     senderId++;
 
     //jQuery( str ).appendTo( '#div-controls-sender' ).hide().show( 'fast' );
-    jQuery( str ).replaceTo( '#div-controls-sender' ).hide().show( 'fast' );
+    $( '#div-controls-sender' ).replaceWith( str );
 }
 
 

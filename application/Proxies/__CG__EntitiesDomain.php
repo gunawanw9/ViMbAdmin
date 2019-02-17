@@ -675,6 +675,17 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
+    public function getMaxSenderCanonical()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMaxSenderCanonical', []);
+
+        return parent::getMaxSenderCanonical();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function setMaxMailboxes($maxMailboxes)
     {
 
