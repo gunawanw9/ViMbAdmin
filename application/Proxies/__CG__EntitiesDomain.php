@@ -36,7 +36,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'domain', 'description', 'quota', 'transport', 'backupmx', 'active', 'homedir', 'maildir', 'uid', 'gid', 'created', 'modified', 'id', 'max_quota', 'max_aliases', 'max_mailboxes', 'alias_count', 'mailbox_count', 'Mailboxes', 'Aliases', 'Logs', 'Admins', 'Preferences', 'Archives', '_className', '_preferenceClassName', '_cache', '_namespace');
+            return ['__isInitialized__', '' . "\0" . 'Entities\\Domain' . "\0" . 'domain', '' . "\0" . 'Entities\\Domain' . "\0" . 'description', '' . "\0" . 'Entities\\Domain' . "\0" . 'quota', '' . "\0" . 'Entities\\Domain' . "\0" . 'transport', '' . "\0" . 'Entities\\Domain' . "\0" . 'backupmx', '' . "\0" . 'Entities\\Domain' . "\0" . 'active', '' . "\0" . 'Entities\\Domain' . "\0" . 'homedir', '' . "\0" . 'Entities\\Domain' . "\0" . 'maildir', '' . "\0" . 'Entities\\Domain' . "\0" . 'uid', '' . "\0" . 'Entities\\Domain' . "\0" . 'gid', '' . "\0" . 'Entities\\Domain' . "\0" . 'created', '' . "\0" . 'Entities\\Domain' . "\0" . 'modified', '' . "\0" . 'Entities\\Domain' . "\0" . 'id', '' . "\0" . 'Entities\\Domain' . "\0" . 'max_quota', '' . "\0" . 'Entities\\Domain' . "\0" . 'max_aliases', '' . "\0" . 'Entities\\Domain' . "\0" . 'max_sender_canonical', '' . "\0" . 'Entities\\Domain' . "\0" . 'max_mailboxes', '' . "\0" . 'Entities\\Domain' . "\0" . 'alias_count', '' . "\0" . 'Entities\\Domain' . "\0" . 'canonical_count', '' . "\0" . 'Entities\\Domain' . "\0" . 'mailbox_count', '' . "\0" . 'Entities\\Domain' . "\0" . 'Mailboxes', '' . "\0" . 'Entities\\Domain' . "\0" . 'Aliases', '' . "\0" . 'Entities\\Domain' . "\0" . 'Canonical', '' . "\0" . 'Entities\\Domain' . "\0" . 'Logs', '' . "\0" . 'Entities\\Domain' . "\0" . 'Admins', '' . "\0" . 'Entities\\Domain' . "\0" . 'Preferences', '' . "\0" . 'Entities\\Domain' . "\0" . 'Archives', '_className', '_preferenceClassName', '' . "\0" . 'Entities\\Domain' . "\0" . '_cache', '' . "\0" . 'Entities\\Domain' . "\0" . '_namespace'];
         }
 
-        return array('__isInitialized__', 'domain', 'description', 'quota', 'transport', 'backupmx', 'active', 'homedir', 'maildir', 'uid', 'gid', 'created', 'modified', 'id', 'max_quota', 'max_aliases', 'max_mailboxes', 'alias_count', 'mailbox_count', 'Mailboxes', 'Aliases', 'Logs', 'Admins', 'Preferences', 'Archives', '_className', '_preferenceClassName', '_cache', '_namespace');
+        return ['__isInitialized__', '' . "\0" . 'Entities\\Domain' . "\0" . 'domain', '' . "\0" . 'Entities\\Domain' . "\0" . 'description', '' . "\0" . 'Entities\\Domain' . "\0" . 'quota', '' . "\0" . 'Entities\\Domain' . "\0" . 'transport', '' . "\0" . 'Entities\\Domain' . "\0" . 'backupmx', '' . "\0" . 'Entities\\Domain' . "\0" . 'active', '' . "\0" . 'Entities\\Domain' . "\0" . 'homedir', '' . "\0" . 'Entities\\Domain' . "\0" . 'maildir', '' . "\0" . 'Entities\\Domain' . "\0" . 'uid', '' . "\0" . 'Entities\\Domain' . "\0" . 'gid', '' . "\0" . 'Entities\\Domain' . "\0" . 'created', '' . "\0" . 'Entities\\Domain' . "\0" . 'modified', '' . "\0" . 'Entities\\Domain' . "\0" . 'id', '' . "\0" . 'Entities\\Domain' . "\0" . 'max_quota', '' . "\0" . 'Entities\\Domain' . "\0" . 'max_aliases', '' . "\0" . 'Entities\\Domain' . "\0" . 'max_sender_canonical', '' . "\0" . 'Entities\\Domain' . "\0" . 'max_mailboxes', '' . "\0" . 'Entities\\Domain' . "\0" . 'alias_count', '' . "\0" . 'Entities\\Domain' . "\0" . 'canonical_count', '' . "\0" . 'Entities\\Domain' . "\0" . 'mailbox_count', '' . "\0" . 'Entities\\Domain' . "\0" . 'Mailboxes', '' . "\0" . 'Entities\\Domain' . "\0" . 'Aliases', '' . "\0" . 'Entities\\Domain' . "\0" . 'Canonical', '' . "\0" . 'Entities\\Domain' . "\0" . 'Logs', '' . "\0" . 'Entities\\Domain' . "\0" . 'Admins', '' . "\0" . 'Entities\\Domain' . "\0" . 'Preferences', '' . "\0" . 'Entities\\Domain' . "\0" . 'Archives', '_className', '_preferenceClassName', '' . "\0" . 'Entities\\Domain' . "\0" . '_cache', '' . "\0" . 'Entities\\Domain' . "\0" . '_namespace'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -179,7 +179,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setDomain($domain)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDomain', array($domain));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDomain', [$domain]);
 
         return parent::setDomain($domain);
     }
@@ -190,7 +190,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getDomain()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDomain', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDomain', []);
 
         return parent::getDomain();
     }
@@ -201,7 +201,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setDescription($description)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', array($description));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
 
         return parent::setDescription($description);
     }
@@ -212,7 +212,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getDescription()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
 
         return parent::getDescription();
     }
@@ -223,9 +223,20 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getAliases()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAliases', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAliases', []);
 
         return parent::getAliases();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCanonical()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCanonical', []);
+
+        return parent::getCanonical();
     }
 
     /**
@@ -234,7 +245,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getMailboxes()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMailboxes', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMailboxes', []);
 
         return parent::getMailboxes();
     }
@@ -245,7 +256,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setQuota($quota)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setQuota', array($quota));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setQuota', [$quota]);
 
         return parent::setQuota($quota);
     }
@@ -256,7 +267,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getQuota()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getQuota', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getQuota', []);
 
         return parent::getQuota();
     }
@@ -267,7 +278,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setTransport($transport)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTransport', array($transport));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTransport', [$transport]);
 
         return parent::setTransport($transport);
     }
@@ -278,7 +289,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getTransport()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTransport', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTransport', []);
 
         return parent::getTransport();
     }
@@ -289,7 +300,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setBackupmx($backupmx)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBackupmx', array($backupmx));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBackupmx', [$backupmx]);
 
         return parent::setBackupmx($backupmx);
     }
@@ -300,7 +311,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getBackupmx()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBackupmx', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBackupmx', []);
 
         return parent::getBackupmx();
     }
@@ -311,7 +322,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setActive($active)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', array($active));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', [$active]);
 
         return parent::setActive($active);
     }
@@ -322,7 +333,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getActive()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', []);
 
         return parent::getActive();
     }
@@ -333,7 +344,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setHomedir($homedir)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setHomedir', array($homedir));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setHomedir', [$homedir]);
 
         return parent::setHomedir($homedir);
     }
@@ -344,7 +355,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getHomedir()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHomedir', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHomedir', []);
 
         return parent::getHomedir();
     }
@@ -355,7 +366,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setMaildir($maildir)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMaildir', array($maildir));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMaildir', [$maildir]);
 
         return parent::setMaildir($maildir);
     }
@@ -366,7 +377,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getMaildir()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMaildir', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMaildir', []);
 
         return parent::getMaildir();
     }
@@ -377,7 +388,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setUid($uid)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUid', array($uid));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUid', [$uid]);
 
         return parent::setUid($uid);
     }
@@ -388,7 +399,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getUid()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUid', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUid', []);
 
         return parent::getUid();
     }
@@ -399,7 +410,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setGid($gid)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGid', array($gid));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGid', [$gid]);
 
         return parent::setGid($gid);
     }
@@ -410,7 +421,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getGid()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGid', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGid', []);
 
         return parent::getGid();
     }
@@ -421,7 +432,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setCreated($created)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreated', array($created));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreated', [$created]);
 
         return parent::setCreated($created);
     }
@@ -432,7 +443,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getCreated()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreated', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreated', []);
 
         return parent::getCreated();
     }
@@ -443,7 +454,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setModified($modified)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setModified', array($modified));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setModified', [$modified]);
 
         return parent::setModified($modified);
     }
@@ -454,7 +465,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getModified()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getModified', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getModified', []);
 
         return parent::getModified();
     }
@@ -469,7 +480,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -480,7 +491,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function addMailbox(\Entities\Mailbox $mailboxes)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addMailbox', array($mailboxes));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addMailbox', [$mailboxes]);
 
         return parent::addMailbox($mailboxes);
     }
@@ -491,7 +502,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function removeMailbox(\Entities\Mailbox $mailboxes)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeMailbox', array($mailboxes));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeMailbox', [$mailboxes]);
 
         return parent::removeMailbox($mailboxes);
     }
@@ -502,7 +513,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function addAlias(\Entities\Alias $aliases)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAlias', array($aliases));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAlias', [$aliases]);
 
         return parent::addAlias($aliases);
     }
@@ -513,9 +524,31 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function removeAlias(\Entities\Alias $aliases)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAlias', array($aliases));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAlias', [$aliases]);
 
         return parent::removeAlias($aliases);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addCanonical(\Entities\Canonical $canonical)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addCanonical', [$canonical]);
+
+        return parent::addCanonical($canonical);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeCanonical(\Entities\Canonical $canonical)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeCanonical', [$canonical]);
+
+        return parent::removeCanonical($canonical);
     }
 
     /**
@@ -524,7 +557,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function addLog(\Entities\Log $logs)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLog', array($logs));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLog', [$logs]);
 
         return parent::addLog($logs);
     }
@@ -535,7 +568,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function removeLog(\Entities\Log $logs)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLog', array($logs));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLog', [$logs]);
 
         return parent::removeLog($logs);
     }
@@ -546,7 +579,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getLogs()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLogs', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLogs', []);
 
         return parent::getLogs();
     }
@@ -557,7 +590,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function addAdmin(\Entities\Admin $admins)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAdmin', array($admins));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAdmin', [$admins]);
 
         return parent::addAdmin($admins);
     }
@@ -568,7 +601,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function removeAdmin(\Entities\Admin $admins)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAdmin', array($admins));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAdmin', [$admins]);
 
         return parent::removeAdmin($admins);
     }
@@ -579,7 +612,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getAdmins()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAdmins', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAdmins', []);
 
         return parent::getAdmins();
     }
@@ -590,7 +623,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setMaxAliases($maxAliases)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMaxAliases', array($maxAliases));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMaxAliases', [$maxAliases]);
 
         return parent::setMaxAliases($maxAliases);
     }
@@ -601,9 +634,20 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getMaxAliases()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMaxAliases', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMaxAliases', []);
 
         return parent::getMaxAliases();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMaxCanonical()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMaxCanonical', []);
+
+        return parent::getMaxCanonical();
     }
 
     /**
@@ -612,7 +656,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setMaxMailboxes($maxMailboxes)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMaxMailboxes', array($maxMailboxes));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMaxMailboxes', [$maxMailboxes]);
 
         return parent::setMaxMailboxes($maxMailboxes);
     }
@@ -623,7 +667,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getMaxMailboxes()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMaxMailboxes', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMaxMailboxes', []);
 
         return parent::getMaxMailboxes();
     }
@@ -634,7 +678,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setMaxQuota($maxQuota)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMaxQuota', array($maxQuota));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMaxQuota', [$maxQuota]);
 
         return parent::setMaxQuota($maxQuota);
     }
@@ -645,7 +689,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getMaxQuota()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMaxQuota', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMaxQuota', []);
 
         return parent::getMaxQuota();
     }
@@ -656,7 +700,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setAliasCount($aliasCount)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAliasCount', array($aliasCount));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAliasCount', [$aliasCount]);
 
         return parent::setAliasCount($aliasCount);
     }
@@ -667,7 +711,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getAliasCount()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAliasCount', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAliasCount', []);
 
         return parent::getAliasCount();
     }
@@ -678,7 +722,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function increaseAliasCount()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'increaseAliasCount', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'increaseAliasCount', []);
 
         return parent::increaseAliasCount();
     }
@@ -689,9 +733,53 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function decreaseAliasCount()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'decreaseAliasCount', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'decreaseAliasCount', []);
 
         return parent::decreaseAliasCount();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCanonicalCount($canonicalCount)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCanonicalCount', [$canonicalCount]);
+
+        return parent::setCanonicalCount($canonicalCount);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCanonicalCount()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCanonicalCount', []);
+
+        return parent::getCanonicalCount();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function increaseCanonicalCount()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'increaseCanonicalCount', []);
+
+        return parent::increaseCanonicalCount();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function decreaseCanonicalCount()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'decreaseCanonicalCount', []);
+
+        return parent::decreaseCanonicalCount();
     }
 
     /**
@@ -700,7 +788,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setMailboxCount($mailboxCount)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMailboxCount', array($mailboxCount));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMailboxCount', [$mailboxCount]);
 
         return parent::setMailboxCount($mailboxCount);
     }
@@ -711,7 +799,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getMailboxCount()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMailboxCount', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMailboxCount', []);
 
         return parent::getMailboxCount();
     }
@@ -722,7 +810,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function increaseMailboxCount()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'increaseMailboxCount', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'increaseMailboxCount', []);
 
         return parent::increaseMailboxCount();
     }
@@ -733,7 +821,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function decreaseMailboxCount()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'decreaseMailboxCount', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'decreaseMailboxCount', []);
 
         return parent::decreaseMailboxCount();
     }
@@ -744,7 +832,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function addMailboxe(\Entities\Mailbox $mailboxes)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addMailboxe', array($mailboxes));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addMailboxe', [$mailboxes]);
 
         return parent::addMailboxe($mailboxes);
     }
@@ -755,7 +843,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function removeMailboxe(\Entities\Mailbox $mailboxes)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeMailboxe', array($mailboxes));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeMailboxe', [$mailboxes]);
 
         return parent::removeMailboxe($mailboxes);
     }
@@ -766,7 +854,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function addAliase(\Entities\Alias $aliases)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAliase', array($aliases));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAliase', [$aliases]);
 
         return parent::addAliase($aliases);
     }
@@ -777,7 +865,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function removeAliase(\Entities\Alias $aliases)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAliase', array($aliases));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAliase', [$aliases]);
 
         return parent::removeAliase($aliases);
     }
@@ -788,7 +876,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function addPreference(\Entities\DomainPreference $preferences)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addPreference', array($preferences));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addPreference', [$preferences]);
 
         return parent::addPreference($preferences);
     }
@@ -799,7 +887,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function removePreference(\Entities\DomainPreference $preferences)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removePreference', array($preferences));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removePreference', [$preferences]);
 
         return parent::removePreference($preferences);
     }
@@ -810,7 +898,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getPreferences()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPreferences', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPreferences', []);
 
         return parent::getPreferences();
     }
@@ -821,7 +909,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function addArchive(\Entities\Archive $archives)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addArchive', array($archives));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addArchive', [$archives]);
 
         return parent::addArchive($archives);
     }
@@ -832,7 +920,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function removeArchive(\Entities\Archive $archives)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeArchive', array($archives));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeArchive', [$archives]);
 
         return parent::removeArchive($archives);
     }
@@ -843,7 +931,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getArchives()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getArchives', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getArchives', []);
 
         return parent::getArchives();
     }
@@ -854,7 +942,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function loadPreference($attribute, $index = 0, $includeExpired = false)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'loadPreference', array($attribute, $index, $includeExpired));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'loadPreference', [$attribute, $index, $includeExpired]);
 
         return parent::loadPreference($attribute, $index, $includeExpired);
     }
@@ -865,7 +953,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function hasPreference($attribute, $index = 0, $includeExpired = false)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'hasPreference', array($attribute, $index, $includeExpired));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'hasPreference', [$attribute, $index, $includeExpired]);
 
         return parent::hasPreference($attribute, $index, $includeExpired);
     }
@@ -876,7 +964,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getPreference($attribute, $index = 0, $includeExpired = false)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPreference', array($attribute, $index, $includeExpired));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPreference', [$attribute, $index, $includeExpired]);
 
         return parent::getPreference($attribute, $index, $includeExpired);
     }
@@ -887,7 +975,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function setPreference($attribute, $value, $operator = '=', $expires = 0, $index = 0)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPreference', array($attribute, $value, $operator, $expires, $index));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPreference', [$attribute, $value, $operator, $expires, $index]);
 
         return parent::setPreference($attribute, $value, $operator, $expires, $index);
     }
@@ -898,7 +986,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function addIndexedPreference($attribute, $value, $operator = '=', $expires = 0, $max = 0)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addIndexedPreference', array($attribute, $value, $operator, $expires, $max));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addIndexedPreference', [$attribute, $value, $operator, $expires, $max]);
 
         return parent::addIndexedPreference($attribute, $value, $operator, $expires, $max);
     }
@@ -909,7 +997,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function cleanExpiredPreferences($asOf = NULL, $attribute = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'cleanExpiredPreferences', array($asOf, $attribute));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'cleanExpiredPreferences', [$asOf, $attribute]);
 
         return parent::cleanExpiredPreferences($asOf, $attribute);
     }
@@ -920,7 +1008,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function deletePreference($attribute, $index = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'deletePreference', array($attribute, $index));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'deletePreference', [$attribute, $index]);
 
         return parent::deletePreference($attribute, $index);
     }
@@ -931,7 +1019,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function expungePreferences()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'expungePreferences', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'expungePreferences', []);
 
         return parent::expungePreferences();
     }
@@ -942,7 +1030,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getIndexedPreference($attribute, $withIndex = false, $ignoreExpired = true)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIndexedPreference', array($attribute, $withIndex, $ignoreExpired));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIndexedPreference', [$attribute, $withIndex, $ignoreExpired]);
 
         return parent::getIndexedPreference($attribute, $withIndex, $ignoreExpired);
     }
@@ -953,7 +1041,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function getAssocPreference($attribute, $index = NULL, $ignoreExpired = true)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAssocPreference', array($attribute, $index, $ignoreExpired));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAssocPreference', [$attribute, $index, $ignoreExpired]);
 
         return parent::getAssocPreference($attribute, $index, $ignoreExpired);
     }
@@ -964,7 +1052,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function deleteAssocPreference($attribute, $index = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'deleteAssocPreference', array($attribute, $index));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'deleteAssocPreference', [$attribute, $index]);
 
         return parent::deleteAssocPreference($attribute, $index);
     }
@@ -975,7 +1063,7 @@ class Domain extends \Entities\Domain implements \Doctrine\ORM\Proxy\Proxy
     public function _getPreferences()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '_getPreferences', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '_getPreferences', []);
 
         return parent::_getPreferences();
     }

@@ -87,6 +87,11 @@ class Domain
     private $max_aliases;
 
     /**
+     * @var integer $max_sender_canonical
+     */
+    private $max_sender_canonical;
+
+    /**
      * @var integer $max_mailboxes
      */
     private $max_mailboxes;
@@ -95,6 +100,11 @@ class Domain
      * @var bigint $alias_count
      */
     private $alias_count;
+
+    /**
+     * @var bigint $canonical_count
+     */
+    private $canonical_count;
 
     /**
      * @var bigint $mailbox_count
@@ -114,6 +124,11 @@ class Domain
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
+    private $Canonical;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
     private $Logs;
 
     /**
@@ -128,6 +143,7 @@ class Domain
     {
         $this->Mailboxes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->Aliases = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->Canonical = new \Doctrine\Common\Collections\ArrayCollection();
         $this->Logs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->Admins = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -186,6 +202,16 @@ class Domain
     public function getAliases()
     {
         return $this->Aliases;
+    }
+
+    /**
+     * Get canonical
+     *
+     * @return integer 
+     */
+    public function getCanonical()
+    {
+        return $this->Canonical;
     }
 
     /**
@@ -485,6 +511,29 @@ class Domain
     }
 
     /**
+     * Add Canonical
+     *
+     * @param Entities\Canonical $canonical
+     * @return Domain
+     */
+    public function addCanonical(\Entities\Canonical $canonical)
+    {
+        $this->Canonical[] = $canonical;
+
+        return $this;
+    }
+
+    /**
+     * Remove Canonical
+     *
+     * @param Entities\Canonical $canonical
+     */
+    public function removeCanonical(\Entities\Canonical $canonical)
+    {
+        $this->Canonical->removeElement($canonical);
+    }
+
+    /**
      * Add Logs
      *
      * @param Entities\Log $logs
@@ -573,6 +622,16 @@ class Domain
     public function getMaxAliases()
     {
         return $this->max_aliases;
+    }
+
+    /**
+     * Get max_canonical
+     *
+     * @return integer 
+     */
+    public function getMaxCanonical()
+    {
+        return $this->max_sender_canonical;
     }
 
     /**
@@ -667,6 +726,52 @@ class Domain
         if( $this->alias_count > 0 )
             $this->alias_count -= 1;
     }
+
+
+
+    /**
+     * Set sender_canonical_count
+     *
+     * @param bigint $canonicalCount
+     * @return Domain
+     */
+    public function setCanonicalCount($canonicalCount)
+    {
+        $this->canonical_count = $canonicalCount;
+        return $this;
+    }
+
+    /**
+     * Get canonical_count
+     *
+     * @return bigint
+     */
+    public function getCanonicalCount()
+    {
+        return $this->canonical_count;
+    }
+
+    /**
+     * Increase canonical_count
+     *
+     * @return void
+     */
+    public function increaseCanonicalCount()
+    {
+        $this->canonical_count += 1;
+    }
+
+    /**
+     * Decrease canonical_count
+     *
+     * @return void
+     */
+    public function decreaseCanonicalCount()
+    {
+        if( $this->canonical_count > 0 )
+            $this->canonical_count -= 1;
+    }
+
 
 
 

@@ -69,6 +69,8 @@ class Domain extends EntityRepository
                     'description'   => $domain->getDescription(),
                     'max_aliaseses' => $domain->getMaxAliases(),
                     'alias_count'   => $domain->getAliasesCount(),
+                    'max_sender_canonical' => $domain->getMaxSenderCanonical(),
+                    'canonical_count'   => $domain->getSenderCanonicalCount(),
                     'max_mailboxes' => $domain->getMaxMailboxes(),
                     'alias_mailbox' => $domain->getMailboxCount(),
                     'max_quota'     => $domain->getMaxQuota(),
@@ -96,7 +98,15 @@ class Domain extends EntityRepository
      */
     public function loadForDomainList( $admin )
     {
-        $dql = "SELECT d.id AS id, d.domain AS name, d.alias_count AS aliases, d.mailbox_count AS mailboxes,
+/*    
+	    $dql = "SELECT d.id AS id, d.domain AS name, d.alias_count AS aliases, d.mailbox_count AS mailboxes,
+                    d.max_aliases AS maxaliases, d.max_mailboxes AS maxmailboxes, SUM( m.maildir_size ) AS mailboxes_size,
+                    d.max_quota AS maxquota, d.quota AS quota, d.transport AS transport, d.backupmx AS backupmx,
+                    d.active AS active, d.created AS created
+		    FROM \\Entities\\Domain d LEFT JOIN d.Mailboxes m";
+ */    
+	    $dql = "SELECT d.id AS id, d.domain AS name, d.alias_count AS aliases, d.canonical_count AS canonical,
+		    d.max_sender_canonical AS maxcanonical, d.mailbox_count AS mailboxes,
                     d.max_aliases AS maxaliases, d.max_mailboxes AS maxmailboxes, SUM( m.maildir_size ) AS mailboxes_size,
                     d.max_quota AS maxquota, d.quota AS quota, d.transport AS transport, d.backupmx AS backupmx,
                     d.active AS active, d.created AS created
@@ -132,11 +142,20 @@ class Domain extends EntityRepository
         
         if( strpos( $filter, "*" ) === 0 )
             $filter = '%' . substr( $filter, 1 );
-            
+
+/*	
         $dql = "SELECT d.id AS id, d.domain AS name, d.alias_count AS aliases, d.mailbox_count AS mailboxes,
                     d.max_aliases AS maxaliases, d.max_mailboxes AS maxmailboxes, SUM( m.maildir_size ) AS mailboxes_size,
                     d.max_quota AS maxquota, d.quota AS quota, d.transport AS transport, d.backupmx AS backupmx,
                     d.active AS active, d.created AS created
+                FROM \\Entities\\Domain d LEFT JOIN d.Mailboxes m 
+                WHERE ( d.domain LIKE '{$filter}%' OR d.transport LIKE '{$filter}%'  OR d.created LIKE '{$filter}%' )";
+ */
+	$dql = "SELECT d.id AS id, d.domain AS name, d.alias_count AS aliases, d.mailbox_count AS mailboxes,
+		d.canonical_count AS canonical, d.max_aliases AS maxaliases, d.max_mailboxes AS maxmailboxes,
+		SUM( m.maildir_size ) AS mailboxes_size, d.max_sender_canonical AS maxcanonical,
+                d.max_quota AS maxquota, d.quota AS quota, d.transport AS transport, d.backupmx AS backupmx,
+                d.active AS active, d.created AS created
                 FROM \\Entities\\Domain d LEFT JOIN d.Mailboxes m 
                 WHERE ( d.domain LIKE '{$filter}%' OR d.transport LIKE '{$filter}%'  OR d.created LIKE '{$filter}%' )";
         
@@ -180,6 +199,21 @@ class Domain extends EntityRepository
     {
         return $this->getEntityManager()->createQuery(
                 "DELETE FROM \\Entities\\Mailbox m WHERE m.Domain = ?1"
+            )
+            ->setParameter( 1, $domain )
+            ->execute();
+    }
+    
+    /**
+     * Purge all canonical of a domain
+     *
+     * @param $domain \Entities\Domain The domain to purge the aliases of
+     * @return int The number of records deleted
+     */
+    public function purgeCanonical( $domain )
+    {
+        return $this->getEntityManager()->createQuery(
+                "DELETE FROM \\Entities\\Canonical m WHERE m.Domain = ?1"
             )
             ->setParameter( 1, $domain )
             ->execute();

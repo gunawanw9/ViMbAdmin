@@ -62,6 +62,8 @@
       <field name="description" type="string" size="255" uuid="e1faf04e-a0e8-4977-affe-3536a7b34742"/>
       <field name="max_aliases" type="integer" size="0" default="0" required="true" uuid="29d206a2-a22a-44bf-9ca7-5e7c59923e27"/>
       <field name="alias_count" type="bigint" default="0" required="true" uuid="eca0bbee-635c-4d35-813c-5d348753ba7a"/>
+      <field name="max_sender_canonical" type="integer" size="0" default="0" required="true" uuid="47ce2385-c8c2-4b23-bb7e-b7848b548ffa"/>
+      <field name="canonical_count" type="bigint" default="0" required="true" uuid="bde8b53a-70d5-4d08-bccc-71ebe2c766a3"/>
       <field name="max_mailboxes" type="integer" size="0" default="0" required="true" uuid="a1fedc9d-e874-48fe-aa5e-d7ac8cde6fec"/>
       <field name="mailbox_count" type="bigint" default="0" required="true" uuid="6a429220-a136-404d-975d-30ed32a2e019"/>
       <field name="max_quota" type="bigint" default="0" required="true" uuid="3bf4387e-3c28-4789-ad08-040d43624e52"/>
@@ -130,6 +132,22 @@
         <many-to-many-field from="Domain_id" to="id"/>
       </many-to-many-entity>
     </many-to-many>
+    <entity name="\Entities\Canonical" local-name="Canonical" namespace="\Entities" uuid="3d72a48d-fe55-48d9-941c-05c81675ade3">
+      <field name="id" type="bigint" required="true" primary="true" auto-increment="true" uuid="cd18f25d-d63d-4573-9349-7a6d616c0230"/>
+      <field name="Domain_id" type="bigint" uuid="88e7667b-b392-46a3-9271-4529e7478b16"/>
+      <field name="address" type="string" size="255" required="true" unique="true" uuid="69f0baab-8f5e-43a7-ad69-fdd14b689c54"/>
+      <field name="sender" type="text" required="true" uuid="a4dab245-35e8-4f0c-973e-d8ebf4e2c340"/>
+      <field name="active" type="boolean" default="1" required="true" uuid="8d26e7ed-5572-4e47-8b79-834a4fa0e20c"/>
+      <field name="created" type="datetime" required="true" uuid="ea9a1777-6f6c-435f-9ad5-f7b51ba39ffa"/>
+      <field name="modified" type="datetime" uuid="89051806-9569-46d2-81a2-74deab030cfd"/>
+      <orm-attributes>
+        <attribute name="repository-class">Repositories\Canonical</attribute>
+        <attribute name="table">sender_canonical</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\Entities\Canonical" to="\Entities\Domain" owner-alias="Canonical" inverse-alias="Domain" many-owner="true" many-inverse="false" uuid="acddb767-5618-4c16-bde8-0b410de030f8">
+      <association-field from="Domain_id" to="id"/>
+    </association>
     <entity name="\Entities\Alias" local-name="Alias" namespace="\Entities" uuid="0a3139bc-67e7-41cf-82b1-2f53337bcbaf">
       <field name="id" type="bigint" required="true" primary="true" auto-increment="true" uuid="9133b2b1-3d00-4c33-a7d2-bb90cf57697b"/>
       <field name="Domain_id" type="bigint" uuid="07acc490-8608-41fd-be9b-50ab41eb64c1"/>
@@ -233,6 +251,24 @@
     <association from="\Entities\RememberMe" to="\Entities\Admin" owner-alias="RememberMes" inverse-alias="User" many-owner="true" many-inverse="false" uuid="51b420f6-298b-4f39-9eac-e076838c78a9">
       <association-field from="Admin_id" to="id"/>
     </association>
+    <entity name="\Entities\CanonicalPreference" local-name="CanonicalPreference" namespace="\Entities" uuid="43fd8a21-acec-4bfe-8ca2-1af5b83ea5ae">
+      <field name="id" type="bigint" required="true" primary="true" auto-increment="true" uuid="1269a24f-369f-46d2-9c24-f83e956df4b1"/>
+      <field name="Canonical_id" type="bigint" uuid="afd0d4b2-33c2-4c51-8b59-d48ce4e7579e"/>
+      <field name="attribute" type="string" size="255" required="true" uuid="fce0312f-5661-493b-8092-c6205825c379"/>
+      <field name="ix" type="integer" default="0" required="true" uuid="39914178-c9a4-4ef2-b530-faff2a7a5d46"/>
+      <field name="op" type="string" size="2" default=":=" required="true" uuid="ffa1943a-7cca-4faa-a35e-3ad80f7b18bd"/>
+      <field name="value" type="text" required="true" uuid="f811c226-7034-4e38-8594-0e31d5237a34"/>
+      <field name="expire" type="bigint" default="0" required="true" uuid="edda1dfb-c277-45ac-9bf0-b3233260c7c5"/>
+      <index name="IX_CanonicalPreference_1">
+        <index-field name="Canonical_id"/>
+        <index-field name="attribute"/>
+        <index-field name="ix"/>
+      </index>
+      <orm-attributes>
+        <attribute name="repository-class">Repositories\CanonicalPreference</attribute>
+        <attribute name="table">sender_canonical_pref</attribute>
+      </orm-attributes>
+    </entity>
     <entity name="\Entities\AliasPreference" local-name="AliasPreference" namespace="\Entities" uuid="ecb7d3bf-095b-4207-93be-0645ca2fb077">
       <field name="id" type="bigint" required="true" primary="true" auto-increment="true" uuid="dfbcaa8c-b8a3-432b-b280-aff4f496caec"/>
       <field name="Alias_id" type="bigint" uuid="73a86289-7aa3-48e7-90c4-c25af97ee269"/>

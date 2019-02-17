@@ -182,6 +182,7 @@ class DomainController extends ViMbAdmin_Controller_PluginAction
             $form = $this->getDomainForm();
             $form->getElement( 'max_mailboxes' )->setValue( $this->_options['defaults']['domain']['mailboxes'] );
             $form->getElement( 'max_aliases'   )->setValue( $this->_options['defaults']['domain']['aliases'] );
+            $form->getElement( 'max_canonical' )->setValue( $this->_options['defaults']['domain']['canonical'] );
             $form->getElement( 'transport'     )->setValue( $this->_options['defaults']['domain']['transport'] );
             $form->getElement( 'quota'         )->setValue( $this->_options['defaults']['domain']['quota'] );
             $form->getElement( 'max_quota'     )->setValue( $this->_options['defaults']['domain']['maxquota'] );
