@@ -8,7 +8,7 @@ For example:
 * Your aliases account: support@domain.com
 * Put entry in canonical: support@domain.com for test@domain.com
 
-Then setup your identity or nickname on your MUA as "Support" for sender address support@domain.com.
+Then setup your identity or nickname on your MUA as "Support" for sender address support@domain.com on your mailbox account test@domain.com
 
 **This situation might be happened when you setup aliases account for group mail distribution and you need to send email to them with sender address as aliases account.**
 
