@@ -615,6 +615,26 @@ class Domain
     }
 
     /**
+     * Set max_sender_canonical
+     *
+     * @param integer $maxSenderCanonical
+     * @return Domain
+     */
+    public function setMaxCanonical($maxSenderCanonical)
+    {
+        $this->max_sender_canonical = $maxSenderCanonical;
+    
+        return $this;
+    }
+
+    public function setMaxSenderCanonical($maxSenderCanonical)
+    {
+        $this->max_sender_canonical = $maxSenderCanonical;
+    
+        return $this;
+    }
+
+    /**
      * Get max_aliases
      *
      * @return integer 
@@ -634,6 +654,10 @@ class Domain
         return $this->max_sender_canonical;
     }
 
+    public function getMaxSenderCanonical()
+    {
+        return $this->max_sender_canonical;
+    }
     /**
      * Set max_mailboxes
      *

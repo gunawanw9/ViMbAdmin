@@ -174,6 +174,7 @@ class DomainController extends ViMbAdmin_Controller_PluginAction
             $this->view->isEdit = $isEdit = false;
             $this->_domain = new \Entities\Domain();
             $this->getDomain()->setAliasCount( 0 );
+            $this->getDomain()->setCanonicalCount( 0 );
             $this->getDomain()->setMailboxCount( 0 );
             $this->getDomain()->setCreated( new DateTime() );
             $this->getD2EM()->persist( $this->_domain );
@@ -182,7 +183,7 @@ class DomainController extends ViMbAdmin_Controller_PluginAction
             $form = $this->getDomainForm();
             $form->getElement( 'max_mailboxes' )->setValue( $this->_options['defaults']['domain']['mailboxes'] );
             $form->getElement( 'max_aliases'   )->setValue( $this->_options['defaults']['domain']['aliases'] );
-            $form->getElement( 'max_canonical' )->setValue( $this->_options['defaults']['domain']['canonical'] );
+            $form->getElement( 'max_sender_canonical' )->setValue( $this->_options['defaults']['domain']['canonical'] );
             $form->getElement( 'transport'     )->setValue( $this->_options['defaults']['domain']['transport'] );
             $form->getElement( 'quota'         )->setValue( $this->_options['defaults']['domain']['quota'] );
             $form->getElement( 'max_quota'     )->setValue( $this->_options['defaults']['domain']['maxquota'] );
@@ -293,7 +294,8 @@ class DomainController extends ViMbAdmin_Controller_PluginAction
         if( !$this->getDomain() )
         {
             $this->addMessage( _( 'Invalid or missing domain id.' ), OSS_Message::ERROR );
-            $this->redirect( 'doamin/list' );
+            //$this->redirect( 'doamin/list' );
+            $this->redirect( 'domain/list' );
         }
 
         $this->view->domain = $this->getDomain();

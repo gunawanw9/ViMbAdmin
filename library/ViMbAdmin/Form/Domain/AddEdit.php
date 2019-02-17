@@ -90,6 +90,13 @@ class ViMbAdmin_Form_Domain_AddEdit extends ViMbAdmin_Form
             ->setRequired( false )
             ->addFilter( 'Digits' );
 
+        $canonical = $this->createElement( 'text', 'max_sender_canonical' )
+            ->setLabel( _( 'Canonical' ) )
+            ->setAttrib( 'title', _( 'Canonical' ) )
+            ->setAttrib( 'size', 5 )
+            ->setRequired( false )
+            ->addFilter( 'Digits' );
+
         $mailboxes = $this->createElement( 'text', 'max_mailboxes' )
             ->setLabel( _( 'Mailboxes' ) )
             ->setAttrib( 'title', _( 'Mailboxes' ) )
@@ -131,6 +138,7 @@ class ViMbAdmin_Form_Domain_AddEdit extends ViMbAdmin_Form
             ->addElement( $backupMx )
             ->addElement( $active )
             ->addElement( $aliases )
+            ->addElement( $canonical )
             ->addElement( $mailboxes )
             ->addElement( $maxQuota )
             ->addElement( $quota )

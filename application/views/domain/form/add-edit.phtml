@@ -27,6 +27,7 @@
                     </div>
                     <div class="span6">
                         <div id="advanced_options" class="dontdisplay">
+                            {$element->max_sender_canonical}
                             {$element->max_aliases}
                             {$element->max_mailboxes}
                             {* $element->max_quota *}
@@ -101,6 +102,7 @@
     
     <script type="text/javascript">
         {if $element->max_aliases->hasErrors()
+            || $element->max_sender_canonical->hasErrors()
             || $element->max_mailboxes->hasErrors()
             || $element->max_quota->hasErrors()
             || $element->quota->hasErrors()
