@@ -107,6 +107,7 @@ function getEntries( event ){
                                oDataTable.fnAddData([
                                     row.name,
                                     formatMailboxes( row.id, row.mailboxes, row.maxmailboxes ),
+                                    formatCanonical( row.id, row.canonical, row.maxcanonical ),
                                     formatAliases( row.id, row.aliases, row.maxaliases ),
                                     {if isset($options.defaults.list_size.disabled) && !$options.defaults.list_size.disabled}
                                     row.mailboxes_size == null ? 0 : (row.mailboxes_size / {$multiplier}).toFixed(1),
@@ -150,6 +151,18 @@ function formatMailboxes( id, mailboxes, maxmailboxes )
     <a class="ul" href="{genUrl controller="mailbox" action="list"}/did/' + id + '">' + mailboxes;
     if( maxmailboxes != 0 )
        str += '/' +maxmailboxes
+    str += '</a>';
+    return str;
+}
+
+function formatCanonical( id, canonical, maxcanonical )
+{
+    var str = '<a class="btn btn-mini have-tooltip" id="add_canonical_' + id + '" title="Add Canonical" href="{genUrl controller="canonical" action="add"}/did/' + id + '">\
+        <i class="icon-plus"></i>\
+    </a>&nbsp;&nbsp;\
+    <a class="ul" href="{genUrl controller="canonical" action="list"}/did/' + id + '">' + canonical;
+    if( maxcanonical != 0 )
+       str += '/' + maxcanonical;
     str += '</a>';
     return str;
 }

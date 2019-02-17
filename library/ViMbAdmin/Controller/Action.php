@@ -82,6 +82,13 @@ class ViMbAdmin_Controller_Action extends OSS_Controller_Action
     protected $_alias = false;
 
     /**
+     * The alias object from a 'id' parameter passed to the controller
+     *
+     * @var \Entities\Canonical
+     */
+    protected $_canonical = false;
+
+    /**
      * The archive object from a 'id' parameter passed to the controller
      *
      * @var \Entities\Archive
@@ -125,6 +132,9 @@ class ViMbAdmin_Controller_Action extends OSS_Controller_Action
 
             if( ( $alid = $this->getParam( 'alid', false ) ) )
                 $this->_alias = $this->loadAlias( $alid );
+
+            if( ( $caid = $this->getParam( 'caid', false ) ) )
+                $this->_canonical = $this->loadCanonical( $caid );
 
             if( ( $arid = $this->getParam( 'arid', false ) ) )
                 $this->_archive = $this->loadArchive( $arid );
@@ -277,6 +287,35 @@ class ViMbAdmin_Controller_Action extends OSS_Controller_Action
 
 
     /**
+     * Load a Canonical object from a user supplied parameter.
+     *
+     * @param int $id The domain to load
+     * @param bool $redirect If no canonical found, redirect to `canonical/list` rather than returning false
+     * @param bool $authorise If true, ensure the current user can act on this canonical
+     * @return \Entities\Canonical Either false or the canonical object
+     */
+    public function loadCanonical( $id = null, $redirect = true, $authorise = true )
+    {
+        $canonical = $this->getD2EM()->getRepository( '\\Entities\\Canonical' )->find( $id );
+
+        if( !$canonical )
+        {
+            if( !$redirect ) return false;
+
+            $this->addMessage( _( "Invalid or non-existant canonical." ), OSS_Message::ERROR );
+            $this->redirectAndEnsureDie( 'canonical/list' );
+        }
+
+        if( $authorise )
+            $this->authorise( false, $canonical->getDomain() );
+
+        $this->_domain = $canonical->getDomain();
+
+        return $canonical;
+    }
+
+    
+    /**
      * Load a Mailbox object from a user supplied parameter.
      *
      * @param int $id The mailbox to load
@@ -397,6 +436,16 @@ class ViMbAdmin_Controller_Action extends OSS_Controller_Action
     public function getAlias()
     {
         return $this->_alias;
+    }
+
+    /**
+     * Accessor method for the canonical object
+     *
+     * @return \Entities\Canonical Or false
+     */
+    public function getCanonical()
+    {
+        return $this->_canonical;
     }
 
     /**

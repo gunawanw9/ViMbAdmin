@@ -26,6 +26,7 @@
         <tr>
             <th>Domain</th>
             <th>Mailboxes</th>
+            <th>Canonical</th>
             <th>Aliases</th>
             {if isset($options.defaults.list_size.disabled) && !$options.defaults.list_size.disabled}
                 <th>Size ({$size_multiplier})</th>
@@ -46,6 +47,10 @@
                     <a class="ul" href="{genUrl controller='mailbox' action='list' did=$domain.id}">{$domain.mailboxes}{if $domain.maxmailboxes}/{$domain.maxmailboxes}{/if}</a>
                 </td>
                 <td>
+                    <a class="btn btn-mini have-tooltip" id="add_canonical_{$domain.id}" title="Add Canonical" href="{genUrl controller='canonical' action='add' did=$domain.id}"><i class="icon-plus"></i></a>&nbsp;&nbsp;
+                    <a class="ul" href="{genUrl controller='canonical' action='list' did=$domain.id}">{$domain.canonical}{if $domain.maxcanonical}/{$domain.maxcanonical}{/if}</a>
+                </td>
+		<td>
                     <a class="btn btn-mini have-tooltip" id="add_alias_{$domain.id}" title="Add Alias" href="{genUrl controller='alias' action='add' did=$domain.id}"><i class="icon-plus"></i></a>&nbsp;&nbsp;
                     <a class="ul" href="{genUrl controller='alias' action='list' did=$domain.id}">{$domain.aliases}{if $domain.maxaliases}/{$domain.maxaliases}{/if}</a>
                 </td>
@@ -136,7 +141,7 @@
         <em id="purge_domain_name"></em> ?
         <br>
         <br>
-        All mailboxes, aliases and logs will be removed.
+        All mailboxes, canonical, aliases and logs will be removed.
         <br>
         <br>
     </div>
